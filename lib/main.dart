@@ -22,6 +22,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   double height = 100.0;
+  double weight = 75.0;
 
 
   @override
@@ -78,6 +79,48 @@ class _HomePageState extends State<HomePage> {
               });
             },
           ),
+        
+          Text(
+            "Peso:",
+            style: TextStyle(
+              fontSize: 16.0,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            mainAxisAlignment: MainAxisAlignment.center,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Text(
+                weight.toStringAsFixed(0),
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "Kg",
+                style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ],
+          ),
+          Slider(
+            value: weight,
+            min: 30,
+            max: 140,
+            activeColor: Color(0xff3bceac),
+            onChanged: (double value){
+              weight = value;
+              setState(() {
+                
+              });
+            },
+          ),
+        
+        
         ],
       ),
     );
