@@ -33,9 +33,43 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-
-      
-
+      body: Column(
+        children: [
+          Text(
+            "Altura:",
+            style: TextStyle(
+              fontSize: 16.0,
+            ),
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            mainAxisAlignment: MainAxisAlignment.center,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Text(
+                "182",
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                "cm",
+                style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ],
+          ),
+          Slider(
+            value: 150,
+            min: 40,
+            max: 200,
+            onChanged: (double value) {},
+          ),
+        ],
+      ),
     );
   }
 }
