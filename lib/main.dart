@@ -136,9 +136,31 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {},
               ),
             ),
-          
+
+            SizedBox(
+              height: 20.0,
+            ),
             Text(
               "23.5",
+              style: TextStyle(
+                fontSize: 48.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              "Normal",
+              style: TextStyle(
+                color: Color(0xffee4266),
+                fontSize: 18.0,
+              ),
+            ),
+            Text(
+              "Estás bien, sigue así, pero no te descuides",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.black54,
+                fontSize: 14.0,
+              ),
             ),
           
           ],
