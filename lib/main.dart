@@ -136,7 +136,6 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {},
               ),
             ),
-
             SizedBox(
               height: 20.0,
             ),
@@ -162,10 +161,12 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 14.0,
               ),
             ),
-
-            Image.asset("assets/images/image1.png",),
-
-          
+            Expanded(
+              child: Image.asset(
+                "assets/images/image1.png",
+                // height: 200,
+              ),
+            ),
           ],
         ),
       ),
