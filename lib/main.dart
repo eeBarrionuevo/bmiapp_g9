@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
 
@@ -23,7 +22,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.pink,
+        centerTitle: true,
+        title: Text(
+          "Calcular IMC",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
+
+      
+
+    );
   }
 }
-
