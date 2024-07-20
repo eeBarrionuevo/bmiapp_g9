@@ -162,6 +162,9 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 14.0,
               ),
             ),
+
+            Image.asset("assets/images/image1.png",),
+
           
           ],
         ),
