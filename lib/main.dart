@@ -20,11 +20,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  double height = 100.0;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink,
+        backgroundColor: Color(0xff540d6e),
         centerTitle: true,
         title: Text(
           "Calcular IMC",
@@ -47,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             textBaseline: TextBaseline.alphabetic,
             children: [
               Text(
-                "182",
+                height.toStringAsFixed(0),
                 style: TextStyle(
                   fontSize: 28.0,
                   fontWeight: FontWeight.bold,
@@ -63,10 +67,16 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           Slider(
-            value: 150,
+            value: height,
             min: 40,
-            max: 200,
-            onChanged: (double value) {},
+            max: 220,
+            activeColor: Color(0xffee4266),
+            onChanged: (double value) {
+              height = value;
+              setState(() {
+                
+              });
+            },
           ),
         ],
       ),
