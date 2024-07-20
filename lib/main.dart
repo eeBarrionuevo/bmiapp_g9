@@ -20,10 +20,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   double height = 100.0;
   double weight = 75.0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -38,90 +36,113 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          Text(
-            "Altura:",
-            style: TextStyle(
-              fontSize: 16.0,
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            Text(
+              "Altura:",
+              style: TextStyle(
+                fontSize: 16.0,
+              ),
             ),
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            mainAxisAlignment: MainAxisAlignment.center,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text(
-                height.toStringAsFixed(0),
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              mainAxisAlignment: MainAxisAlignment.center,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Text(
+                  height.toStringAsFixed(0),
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              Text(
-                "cm",
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.normal,
+                Text(
+                  "cm",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.normal,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Slider(
-            value: height,
-            min: 40,
-            max: 220,
-            activeColor: Color(0xffee4266),
-            onChanged: (double value) {
-              height = value;
-              setState(() {
-                
-              });
-            },
-          ),
-        
-          Text(
-            "Peso:",
-            style: TextStyle(
-              fontSize: 16.0,
+              ],
             ),
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.baseline,
-            mainAxisAlignment: MainAxisAlignment.center,
-            textBaseline: TextBaseline.alphabetic,
-            children: [
-              Text(
-                weight.toStringAsFixed(0),
-                style: TextStyle(
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold,
-                ),
+            Slider(
+              value: height,
+              min: 40,
+              max: 220,
+              activeColor: Color(0xffee4266),
+              onChanged: (double value) {
+                height = value;
+                setState(() {});
+              },
+            ),
+            Text(
+              "Peso:",
+              style: TextStyle(
+                fontSize: 16.0,
               ),
-              Text(
-                "Kg",
-                style: TextStyle(
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.normal,
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              mainAxisAlignment: MainAxisAlignment.center,
+              textBaseline: TextBaseline.alphabetic,
+              children: [
+                Text(
+                  weight.toStringAsFixed(0),
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
+                Text(
+                  "Kg",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
+            Slider(
+              value: weight,
+              min: 30,
+              max: 140,
+              activeColor: Color(0xff3bceac),
+              onChanged: (double value) {
+                weight = value;
+                setState(() {});
+              },
+            ),
+            SizedBox(
+              height: 16.0,
+            ),
+            SizedBox(
+              height: 52.0,
+              width: double.infinity,
+              child: ElevatedButton(
+                child: Text(
+                  "Calcular",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xff540d6e),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
+                ),
+                onPressed: () {},
               ),
-            ],
-          ),
-          Slider(
-            value: weight,
-            min: 30,
-            max: 140,
-            activeColor: Color(0xff3bceac),
-            onChanged: (double value){
-              weight = value;
-              setState(() {
-                
-              });
-            },
-          ),
-        
-        
-        ],
+            ),
+          
+            Text(
+              "23.5",
+            ),
+          
+          ],
+        ),
       ),
     );
   }
