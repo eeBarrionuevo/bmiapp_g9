@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,8 +21,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   double height = 100.0;
   double weight = 75.0;
+  double bmi = 20.0;
 
   @override
   Widget build(BuildContext context) {
@@ -133,14 +136,23 @@ class _HomePageState extends State<HomePage> {
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                    bmi = weight / pow(height/100, 2);
+                    //índice 
+                    //bmi < 18.0 // Bajo peso
+                    // bmi >= 18 y bmi <= 25 // Normal
+                    // bmi > 25 // Sobrepeso
+                    setState(() {
+                      
+                    });
+                },
               ),
             ),
             SizedBox(
               height: 20.0,
             ),
             Text(
-              "23.5",
+              bmi.toStringAsFixed(1),
               style: TextStyle(
                 fontSize: 48.0,
                 fontWeight: FontWeight.bold,
