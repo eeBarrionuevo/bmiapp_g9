@@ -165,6 +165,7 @@ class _HomePageState extends State<HomePage> {
                   BMICalculate bmiCalculate = BMICalculate(height: height, weight: weight);
 
                   print(bmiCalculate.getBMI());
+                  print(bmiCalculate.getResult());
                   //índice
                   // bmi < 18.0 // Bajo peso
                   // bmi >= 18 y bmi <= 25 // Normal

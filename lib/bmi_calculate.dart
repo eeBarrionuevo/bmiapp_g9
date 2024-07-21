@@ -13,7 +13,18 @@ class BMICalculate{
     return bmi;
   }
 
-  
+  String getResult(){
+    double bmi = getBMI();
+    String result = "";
+    if(bmi < 18){
+      result = "Bajo peso";
+    }else if(bmi <= 25){
+      result = "Normal";
+    }else{
+      result = "Sobre peso";
+    }
+    return result;
+  }
 
 
 }
