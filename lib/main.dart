@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,8 @@ class _HomePageState extends State<HomePage> {
   double height = 100.0;
   double weight = 75.0;
   double bmi = 20.0;
+  String result = "Normal";
+  String comment = "Está todo bien, sigue así";
 
   @override
   Widget build(BuildContext context) {
@@ -139,9 +142,21 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                     bmi = weight / pow(height/100, 2);
                     //índice 
-                    //bmi < 18.0 // Bajo peso
+                    // bmi < 18.0 // Bajo peso
                     // bmi >= 18 y bmi <= 25 // Normal
                     // bmi > 25 // Sobrepeso
+
+                    if(bmi < 18){
+                      result = "Bajo peso";
+                      comment = "Debes de comer un poco más y realizar ejercicios";
+                    }else if(bmi >= 18 && bmi <= 25){
+                      result = "Normal";
+                      comment = "Estás bien, continúa comiendo sano y realizando ejercicios";
+                    }else if(bmi > 25){
+                      result = "Sobre peso";
+                      comment = "Debes de comer más sano y realizar mucho más ejercicio";
+                    }
+
                     setState(() {
                       
                     });
@@ -159,14 +174,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Text(
-              "Normal",
+              result,
               style: TextStyle(
                 color: Color(0xffee4266),
                 fontSize: 18.0,
               ),
             ),
             Text(
-              "Estás bien, sigue así, pero no te descuides",
+              comment,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.black54,
