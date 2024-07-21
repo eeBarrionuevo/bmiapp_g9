@@ -30,24 +30,6 @@ class _HomePageState extends State<HomePage> {
   String comment = "Está todo bien, sigue así";
   int image = 1;
 
-  void calculate() {
-    bmi = weight / pow(height / 100, 2);
-    if (bmi < 18) {
-      result = "Bajo peso";
-      comment = "Debes de comer un poco más y realizar ejercicios";
-      image = 1;
-    } else if (bmi <= 25) {
-      result = "Normal";
-      comment = "Estás bien, continúa comiendo sano y realizando ejercicios";
-      image = 2;
-    } else {
-      result = "Sobre peso";
-      comment = "Debes de comer más sano y realizar mucho más ejercicio";
-      image = 3;
-    }
-
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -160,31 +142,16 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onPressed: () {
-                  calculate();
-
+                 
                   BMICalculate bmiCalculate = BMICalculate(height, weight);
+                  bmi = bmiCalculate.getBMI();
+                  result = bmiCalculate.getResult();
+                  comment = bmiCalculate.getComment();
+                  image = bmiCalculate.getImage();
+                  setState(() {
+                    
+                  });
 
-                  print(bmiCalculate.getBMI());
-                  print(bmiCalculate.getResult());
-          
-                  //índice
-                  // bmi < 18.0 // Bajo peso
-                  // bmi >= 18 y bmi <= 25 // Normal
-                  // bmi > 25 // Sobrepeso
-
-                  // if (bmi < 18) {
-                  //   result = "Bajo peso";
-                  //   comment =
-                  //       "Debes de comer un poco más y realizar ejercicios";
-                  // } else if (bmi >= 18 && bmi <= 25) {
-                  //   result = "Normal";
-                  //   comment =
-                  //       "Estás bien, continúa comiendo sano y realizando ejercicios";
-                  // } else if (bmi > 25) {
-                  //   result = "Sobre peso";
-                  //   comment =
-                  //       "Debes de comer más sano y realizar mucho más ejercicio";
-                  // }
                 },
               ),
             ),
