@@ -22,12 +22,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   double height = 100.0;
   double weight = 75.0;
   double bmi = 20.0;
   String result = "Normal";
   String comment = "Está todo bien, sigue así";
+  int image = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -140,26 +140,44 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 onPressed: () {
-                    bmi = weight / pow(height/100, 2);
-                    //índice 
-                    // bmi < 18.0 // Bajo peso
-                    // bmi >= 18 y bmi <= 25 // Normal
-                    // bmi > 25 // Sobrepeso
+                  bmi = weight / pow(height / 100, 2);
+                  //índice
+                  // bmi < 18.0 // Bajo peso
+                  // bmi >= 18 y bmi <= 25 // Normal
+                  // bmi > 25 // Sobrepeso
 
-                    if(bmi < 18){
-                      result = "Bajo peso";
-                      comment = "Debes de comer un poco más y realizar ejercicios";
-                    }else if(bmi >= 18 && bmi <= 25){
-                      result = "Normal";
-                      comment = "Estás bien, continúa comiendo sano y realizando ejercicios";
-                    }else if(bmi > 25){
-                      result = "Sobre peso";
-                      comment = "Debes de comer más sano y realizar mucho más ejercicio";
-                    }
+                  // if (bmi < 18) {
+                  //   result = "Bajo peso";
+                  //   comment =
+                  //       "Debes de comer un poco más y realizar ejercicios";
+                  // } else if (bmi >= 18 && bmi <= 25) {
+                  //   result = "Normal";
+                  //   comment =
+                  //       "Estás bien, continúa comiendo sano y realizando ejercicios";
+                  // } else if (bmi > 25) {
+                  //   result = "Sobre peso";
+                  //   comment =
+                  //       "Debes de comer más sano y realizar mucho más ejercicio";
+                  // }
 
-                    setState(() {
-                      
-                    });
+                  if (bmi < 18) {
+                    result = "Bajo peso";
+                    comment =
+                        "Debes de comer un poco más y realizar ejercicios";
+                    image = 1;
+                  } else if (bmi <= 25) {
+                    result = "Normal";
+                    comment =
+                        "Estás bien, continúa comiendo sano y realizando ejercicios";
+                    image = 2;
+                  } else {
+                    result = "Sobre peso";
+                    comment =
+                        "Debes de comer más sano y realizar mucho más ejercicio";
+                    image = 3;
+                  }
+
+                  setState(() {});
                 },
               ),
             ),
@@ -190,7 +208,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: Image.asset(
-                "assets/images/image1.png",
+                "assets/images/image$image.png"
                 // height: 200,
               ),
             ),
